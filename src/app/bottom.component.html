@@ -1,0 +1,16 @@
+<ng-template
+    [tuiSheetDialog]="isOpened()"
+    (tuiSheetDialogChange)="toggle($event)"
+    [tuiSheetDialogOptions]="defaultOptions()"
+>
+    <header>
+        <div #topMark></div>
+        <ng-content select="[header]"></ng-content>
+    </header>
+    <div class="container" [style.height]="height$ | async" (tuiSwipe)="onSwipe($any($event).direction)">
+            <ng-content></ng-content>
+    </div>
+    <footer>
+        <ng-content select="[footer]"></ng-content>
+    </footer>
+</ng-template>
